@@ -22,10 +22,8 @@ public class TvTime {
     }
 
     public static String parseShow(String showJson) {
-        System.out.println(showJson);
         Gson gson = new GsonBuilder().disableHtmlEscaping().serializeNulls().create();
         Show show = gson.fromJson(showJson, Show.class);
-        System.out.println(show.toString());
         return gson.toJson(show);
     }
 }

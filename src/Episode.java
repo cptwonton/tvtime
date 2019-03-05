@@ -28,7 +28,7 @@ public class Episode {
         }
     }
 
-    class Links {
+    public class Links {
         Self self;
 
         class Self {
@@ -72,37 +72,5 @@ public class Episode {
         public Links.Self createInstance(Type type) {
             return links.new Self();
         }
-    }
-
-    @Override
-    public String toString() {
-        try {
-            return String.format("{" +
-                            "\"id\":%d," +
-                            "\"url\":\"%s\"," +
-                            "\"name\":\"%s\"," +
-                            "\"season\":%d," +
-                            "\"number\":%d," +
-                            "\"airdate\":\"%s\"," +
-                            "\"airtime\":\"%s\"," +
-                            "\"airstamp\":\"%s\"," +
-                            "\"runtime\":%d," +
-                            "\"image\":{" +
-                                "\"medium\":\"%s\"," +
-                                "\"original\":\"%s\"" +
-                                "}," +
-                            "\"summary\":\"%s\"," +
-                            "\"_links\":{" +
-                                "\"self\":{" +
-                                    "\"href\":\"%s\"" +
-                                    "}" +
-                                "}" +
-                            "}",
-                    id, url, name, season, number, airdate, airtime, airstamp, runtime, image.medium, image.original, summary, _links.self.href);
-        }
-        catch(Exception ex) {
-            System.out.println(ex.toString());
-        }
-        return null;
     }
 }
