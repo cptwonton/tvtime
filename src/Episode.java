@@ -15,8 +15,8 @@ public class Episode {
     String airtime;
     String airstamp;
     Integer runtime;
-    String summary;
     Image image;
+    String summary;
     Links _links;
 
     class Image {

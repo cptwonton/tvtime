@@ -9,12 +9,20 @@ import java.util.Date;
 
 public class TvTime {
 
-    public static String parseEpisode(String episodeJson) {
-        //String blackMirrorEpisodeData = Data.getFileContentsAsString("blackmirror.json");
-        System.out.println(episodeJson);
-        Gson gson = new Gson();
-        Episode episode = gson.fromJson(episodeJson, Episode.class);
+    public static String parseEpisode(String episodeUnformattedJson) {
+        String blackMirrorEpisodeData = Data.getFileContentsAsString("blackmirror.json");
+        System.out.println(blackMirrorEpisodeData);
+
+        Gson gson = new GsonBuilder().disableHtmlEscaping().create();
+        Episode episode = gson.fromJson(episodeUnformattedJson, Episode.class);
         System.out.println(episode.toString());
-        return episode.toString();
+        return gson.toJson(episode);
+    }
+
+    public static String parseEpisodes(String episodesJson) {
+        System.out.println(episodesJson);
+        Gson gson = new GsonBuilder().disableHtmlEscaping().create();
+        Episode[] episodes = gson.fromJson(episodesJson, Episode[].class);
+        return gson.toJson(episodes);
     }
 }
